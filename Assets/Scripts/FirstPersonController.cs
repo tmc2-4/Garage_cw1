@@ -15,36 +15,36 @@ public class FirstPersonController : MonoBehaviour
     public Transform playerCamera;
     private float verticalRotation = 0f;
 
+    private CharacterController controller;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if (Input.GetKey("w"))
-        {
-      
-            transform.position += transform.forward * speed * Time.deltaTime;
-        }
 
-        if (Input.GetKey("s"))
-        {
-  
-            transform.position -= transform.forward * speed * Time.deltaTime;
-        }
+        float moveX = 0f;
+        float moveZ = 0f;
 
-        if (Input.GetKey("a"))
-        {
-            transform.position -= transform.right * speed * Time.deltaTime;
-        }
+        if (Input.GetKey("w")) moveZ += 1f;
+        if (Input.GetKey("s")) moveZ -= 1f;
+        if (Input.GetKey("a")) moveX -= 1f;
+        if (Input.GetKey("d")) moveX += 1f;
 
-        if (Input.GetKey("d"))
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
-        }
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
+        if (controller != null)
+        {
+            controller.Move(move * speed * Time.deltaTime);
+
+            Vector3 gravity = new Vector3(0, -9.81f, 0);
+            controller.Move(gravity * Time.deltaTime);
+        }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
