@@ -58,6 +58,29 @@ public class FirstPersonController : MonoBehaviour
         }
 
         transform.Rotate(0, mouseX, 0);
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 10f);
+
+            foreach (RaycastHit hit in hits)
+            {
+                InteractableParts interactable = hit.collider.GetComponent<InteractableParts>();
+
+                if (interactable == null)
+                {
+                    interactable = hit.collider.GetComponentInParent<InteractableParts>();
+
+                }
+                if (interactable != null)
+                {
+                    Debug.Log($"Hit {interactable.partName}");
+                    interactable.InspectingPart();
+                    break;
+                }
+            }
+        }
     }
 }
     
