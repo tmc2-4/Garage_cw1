@@ -6,6 +6,7 @@ public class InteractableParts : MonoBehaviour
     public string partName; [TextArea(3, 10)]
     public string partDescription;
 
+    public GameObject promptUI;
     
 
     private static Text inspectUItext;
@@ -21,6 +22,55 @@ public class InteractableParts : MonoBehaviour
 
     void Update()
     {
+        if (FirstPersonController.isInspecting == false)
+        {
+            if (Camera.main != null)
+            {
+                Ray lookRay = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                RaycastHit hit;
+                float maxDistance = 8f;
+
+                if (Physics.Raycast(lookRay, out hit, maxDistance))
+                {
+                    InteractableParts part = hit.collider.GetComponent<InteractableParts>();
+
+
+                    if (hit.collider.gameObject == gameObject)
+                    {
+                        if (promptUI != null)
+                        {
+                            promptUI.SetActive(true);
+                        }
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            InspectingPart();
+                        }
+                    }
+                    else
+                    {
+                        if (promptUI != null)
+                        { 
+                            promptUI.SetActive(false);
+                        }
+                    }  
+                } 
+                else
+                {
+                     if (promptUI != null)
+                     {
+                         promptUI.SetActive(false);
+                     }
+                }
+            } 
+        }
+        else
+        {
+            if (promptUI != null)
+            {
+                promptUI.SetActive(false);
+            }
+        }
+
         if (isThisPartBeingInspected && Input.GetMouseButton(0))
 
         {
@@ -33,6 +83,11 @@ public class InteractableParts : MonoBehaviour
 
     void Start()
     {
+        if (promptUI != null)
+        {
+            promptUI.SetActive(false);
+        }
+
         if (inspectUItext == null)
         {
             GameObject uiObj = GameObject.Find("InspectionText");
@@ -60,6 +115,11 @@ public class InteractableParts : MonoBehaviour
     public void InspectingPart()
     {
         Debug.Log($"Inspecting {partName}: {partDescription}");
+
+        if (promptUI != null)
+        {
+            promptUI.SetActive(false);
+        }
 
         if (activeInspectedPart != null)
         {

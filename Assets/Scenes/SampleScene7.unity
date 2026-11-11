@@ -4414,6 +4414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2405437483533954765, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 407810597}
+    - targetCorrespondingSourceObject: {fileID: -2405437483533954765, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 407810599}
     - targetCorrespondingSourceObject: {fileID: -4031621441853041576, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 786693144}
@@ -4441,15 +4444,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7643309456540419128, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 751941248}
+    - targetCorrespondingSourceObject: {fileID: -7643309456540419128, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 751941250}
     - targetCorrespondingSourceObject: {fileID: -3499953183545739499, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1984624020}
     - targetCorrespondingSourceObject: {fileID: -3499953183545739499, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1984624023}
+      addedObject: {fileID: 1984624024}
     - targetCorrespondingSourceObject: {fileID: -3499953183545739499, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1984624024}
+      addedObject: {fileID: 1984624026}
   m_SourcePrefab: {fileID: 100100000, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
 --- !u!4 &407810580 stripped
 Transform:
@@ -4585,19 +4591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4633700cbf14da4c9dfeada3de44fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableParts
-  partName: Chassis
-  partDescription: 
-  partRenderer: {fileID: 0}
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  selectColor:
-    r: 0
-    g: 1
-    b: 1
-    a: 1
 --- !u!54 &407810596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4639,7 +4632,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableParts
   partName: Chassis
   partDescription: 
+  promptUI: {fileID: 0}
   rotationSpeed: 5
+--- !u!114 &407810599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292992217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73b482c3eba8f459d88d85e0eb9e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColourSwitcher
+  targetRenderer: {fileID: 407810590}
+  myColors:
+  - {r: 0.8039216, g: 0.5215687, b: 0.2470588, a: 1}
+  - {r: 0.5575383, g: 0.8820755, b: 0.5643737, a: 1}
+  - {r: 0.3921569, g: 0.5843138, b: 0.9294118, a: 1}
 --- !u!1 &421827093
 GameObject:
   m_ObjectHideFlags: 0
@@ -7205,19 +7216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4633700cbf14da4c9dfeada3de44fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableParts
-  partName: Left thruster
-  partDescription: 
-  partRenderer: {fileID: 0}
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  selectColor:
-    r: 0
-    g: 1
-    b: 1
-    a: 1
 --- !u!114 &751941248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7232,7 +7230,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableParts
   partName: Left thruster
   partDescription: 
+  promptUI: {fileID: 0}
   rotationSpeed: 5
+--- !u!114 &751941250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751941241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73b482c3eba8f459d88d85e0eb9e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColourSwitcher
+  targetRenderer: {fileID: 407810584}
+  myColors:
+  - {r: 0.85098046, g: 0.5372549, b: 0.25490198, a: 1}
+  - {r: 0.24296902, g: 0.735849, b: 0.29384413, a: 1}
+  - {r: 0.3921569, g: 0.5843138, b: 0.9294118, a: 1}
 --- !u!1 &755200872
 GameObject:
   m_ObjectHideFlags: 0
@@ -7731,19 +7747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4633700cbf14da4c9dfeada3de44fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableParts
-  partName: Cockpit
-  partDescription: 
-  partRenderer: {fileID: 0}
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  selectColor:
-    r: 0
-    g: 1
-    b: 1
-    a: 1
 --- !u!114 &786693145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7758,6 +7761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableParts
   partName: Cockpit
   partDescription: 
+  promptUI: {fileID: 0}
   rotationSpeed: 5
 --- !u!1 &788168937
 GameObject:
@@ -14282,19 +14286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4633700cbf14da4c9dfeada3de44fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableParts
-  partName: Power Core
-  partDescription: 
-  partRenderer: {fileID: 0}
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  selectColor:
-    r: 0
-    g: 1
-    b: 1
-    a: 1
 --- !u!114 &1564642161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14309,6 +14300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableParts
   partName: Power core
   partDescription: 
+  promptUI: {fileID: 0}
   rotationSpeed: 5
 --- !u!1 &1586048641
 GameObject:
@@ -17984,34 +17976,9 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7178120342751610374, guid: 38a9d1f3daf7640408ac66ac532a432f, type: 3}
---- !u!114 &1984624023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984624018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4633700cbf14da4c9dfeada3de44fcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickableParts
-  partName: Right Thruster
-  partDescription: 
-  partRenderer: {fileID: 0}
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  selectColor:
-    r: 0
-    g: 1
-    b: 1
-    a: 1
 --- !u!114 &1984624024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18026,7 +17993,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableParts
   partName: Right Thruster
   partDescription: 
+  promptUI: {fileID: 0}
   rotationSpeed: 5
+--- !u!114 &1984624026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984624018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73b482c3eba8f459d88d85e0eb9e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColourSwitcher
+  targetRenderer: {fileID: 407810582}
+  myColors:
+  - {r: 0.69803923, g: 0.39607847, b: 0.15294118, a: 1}
+  - {r: 0.5216462, g: 0.8, b: 0.40230066, a: 1}
+  - {r: 0.3921569, g: 0.5843138, b: 0.9294118, a: 1}
 --- !u!1 &2005814001
 GameObject:
   m_ObjectHideFlags: 0
