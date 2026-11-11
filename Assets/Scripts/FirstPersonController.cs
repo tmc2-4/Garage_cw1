@@ -13,9 +13,13 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Camera")]
     public Transform playerCamera;
+
+    private Transform inspectionCameraPosRef;
     private float verticalRotation = 0f;
 
     private CharacterController controller;
+
+    public static bool isInspecting = false;
 
     void Start()
     {
@@ -23,10 +27,33 @@ public class FirstPersonController : MonoBehaviour
         Cursor.visible = false;
 
         controller = GetComponent<CharacterController>();
+
+        GameObject camPosObj = GameObject.Find("InspectionCameraPos");
+        if (camPosObj != null)
+        {
+            inspectionCameraPosRef = camPosObj.transform;
+        }
     }
 
     void Update()
     {
+        if (isInspecting)
+        {
+            GameObject camObj = GameObject.Find("InspectionCameraPos");
+            if (camObj != null && Camera.main != null)
+            {
+                playerCamera.position = camObj.transform.position;
+                playerCamera.rotation = camObj.transform.rotation;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitInspection();
+            }
+            return;
+
+        }
 
         float moveX = 0f;
         float moveZ = 0f;
@@ -81,6 +108,21 @@ public class FirstPersonController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ExitInspection()
+    {
+        isInspecting = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        GameObject panelObj = GameObject.Find("InspectionPanel");
+        if (panelObj != null)
+        {
+            panelObj.SetActive(false);
+        }
+
+        InteractableParts.RestoreCamera();
     }
 }
     
