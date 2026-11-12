@@ -114,7 +114,7 @@ public class InteractableParts : MonoBehaviour
 
     public void InspectingPart()
     {
-        Debug.Log($"Inspecting {partName}: {partDescription}");
+       Debug.Log($"Inspecting {partName}: {partDescription}");
 
         if (promptUI != null)
         {
