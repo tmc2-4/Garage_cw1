@@ -6,11 +6,9 @@ public class InteractableParts : MonoBehaviour
     public string partName; [TextArea(3, 10)]
     public string partDescription;
 
-    public GameObject promptUI;
-    
+   
 
-    private static Text inspectUItext;
-    private static GameObject panelObj;
+ 
     private static Transform inspectionCamPos;
     private static Vector3 originalCamPos;
     private static Quaternion originalCamRot;
@@ -37,39 +35,16 @@ public class InteractableParts : MonoBehaviour
 
                     if (hit.collider.gameObject == gameObject)
                     {
-                        if (promptUI != null)
-                        {
-                            promptUI.SetActive(true);
-                        }
+                      
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             InspectingPart();
                         }
                     }
-                    else
-                    {
-                        if (promptUI != null)
-                        { 
-                            promptUI.SetActive(false);
-                        }
-                    }  
-                } 
-                else
-                {
-                     if (promptUI != null)
-                     {
-                         promptUI.SetActive(false);
-                     }
                 }
             } 
         }
-        else
-        {
-            if (promptUI != null)
-            {
-                promptUI.SetActive(false);
-            }
-        }
+        
 
         if (isThisPartBeingInspected && Input.GetMouseButton(0))
 
@@ -83,27 +58,7 @@ public class InteractableParts : MonoBehaviour
 
     void Start()
     {
-        if (promptUI != null)
-        {
-            promptUI.SetActive(false);
-        }
-
-        if (inspectUItext == null)
-        {
-            GameObject uiObj = GameObject.Find("InspectionText");
-            if (uiObj != null) inspectUItext = uiObj.GetComponent<Text>();
-  
-        }
-
-        if (panelObj == null)
-        {
-            GameObject pObj = GameObject.Find("InspectionPanel");
-            if (pObj != null)
-            {
-                panelObj = pObj;
-                panelObj.SetActive(false);
-            }
-        }
+      
 
         if(inspectionCamPos == null)
         {
@@ -116,10 +71,7 @@ public class InteractableParts : MonoBehaviour
     {
        Debug.Log($"Inspecting {partName}: {partDescription}");
 
-        if (promptUI != null)
-        {
-            promptUI.SetActive(false);
-        }
+        
 
         if (activeInspectedPart != null)
         {
@@ -129,9 +81,7 @@ public class InteractableParts : MonoBehaviour
         activeInspectedPart = this;
         isThisPartBeingInspected = true;
 
-        if (panelObj != null) panelObj.SetActive(true);
-        if(inspectUItext != null) inspectUItext.text = $"{partName}\n{partDescription}";
-
+        
         if (inspectionCamPos != null && Camera.main != null && !hasStoredCamera)
         {
             originalCamPos = Camera.main.transform.position;
